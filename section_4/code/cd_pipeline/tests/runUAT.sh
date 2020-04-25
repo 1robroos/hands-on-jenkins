@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # set variables
-hostname='localhost'
+hostip=$(ip route show | awk '/default/ {print $3}')
+echo $hostip
+hostname=$hostip
 port=$1
 
 # wait for the app to start
