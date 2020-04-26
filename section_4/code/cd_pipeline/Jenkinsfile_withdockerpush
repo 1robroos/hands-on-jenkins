@@ -68,6 +68,7 @@ def dockerPush() {
 	withDockerRegistry(credentialsId: '1robroosdockerhub') {
     // Push to dockerhub:
     //      sh 'docker push 1robroos/jenkinshandson:latest'  // Image does not exist locally with the tag: 1robroos/jenkinshandson
+		sh "printenv"
 		appImage.push()
 	}
 }
