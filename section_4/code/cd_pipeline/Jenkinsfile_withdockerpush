@@ -61,6 +61,12 @@ pipeline {
 def buildApp() {
 	dir ('section_4/code/cd_pipeline' ) {
 		def appImage = docker.build("hands-on-jenkins/myapp:${BUILD_NUMBER}")
+		withDockerRegistry(credentialsId: '1robroosdockerhub') {
+    		// Push to dockerhub:
+    	    //sh 'docker push 1robroos/jenkinshandson:latest'  // Image does not exist locally with the tag: 1robroos/jenkinshandson
+			sh "printenv"
+			appImage.push()
+	    }
 	}
 }
 
@@ -69,7 +75,7 @@ def dockerPush() {
     // Push to dockerhub:
     //      sh 'docker push 1robroos/jenkinshandson:latest'  // Image does not exist locally with the tag: 1robroos/jenkinshandson
 		sh "printenv"
-		appImage.push()
+	//	appImage.push()
 	}
 }
 
