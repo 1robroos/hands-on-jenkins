@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-//def appImage
+def robroosimageName
 pipeline {
     agent any
 
