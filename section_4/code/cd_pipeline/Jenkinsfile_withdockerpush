@@ -85,24 +85,23 @@ def buildApp() {
 }
 
 def dockerEcho() {
-	sh "echo \"docker push ${robroosRepo}:${BUILD_NUMBER}\"" //No such property: robroosimageName for class: WorkflowScript
+	sh "echo \"docker push ${robroosRepo}:${BUILD_NUMBER}\"" 
     sh "echo \"Running ${env.BUILD_ID} on ${env.JENKINS_URL}\""
 
     sh "docker ps "
 }
 
-//def dockerPush() {
-	//withDockerRegistry(credentialsId: '1robroosdockerhub') {
+def dockerPush() {
+	withDockerRegistry(credentialsId: '1robroosdockerhub') {
     // Push to dockerhub:
-    //      sh 'docker push 1robroos/jenkinshandson:latest'  // Image does not exist locally with the tag: 1robroos/jenkinshandson
-//	        sh " echo docker push ${robroosimageName}"
-
+		sh "docker push ${robroosRepo}:${BUILD_NUMBER}" 
+        //	        sh " echo docker push ${robroosimageName}"
 //        sh "docker push ${robroosimageName}"
 //		sh " "
 	//	sh "printenv"
 	//	appImage.push()
 	//}
-//}
+}
 
 def deploy(environment) {
 
