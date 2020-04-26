@@ -62,7 +62,7 @@ def buildApp() {
 	dir ('section_4/code/cd_pipeline' ) {
 		def imageName ="hands-on-jenkins/myapp:${BUILD_NUMBER}"
 		def appImage = docker.build("${imageName}")
-		sh "docker tag  "${imageName}" 1robroos/handsonjenkins:${BUILD_NUMBER}"
+		sh "docker tag  ${imageName} 1robroos/handsonjenkins:${BUILD_NUMBER}"
 
 		//def appImage = docker.build("hands-on-jenkins/myapp:${BUILD_NUMBER}")
 		//def robroosappImage = docker.Image.tag("1robroos/handsonjenkins:${BUILD_NUMBER}")
