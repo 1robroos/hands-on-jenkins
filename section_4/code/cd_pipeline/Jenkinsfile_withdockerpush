@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-def appImage
+//def appImage
 pipeline {
     agent any
 
@@ -61,12 +61,12 @@ pipeline {
 def buildApp() {
 	dir ('section_4/code/cd_pipeline' ) {
 		def appImage = docker.build("hands-on-jenkins/myapp:${BUILD_NUMBER}")
-		def 1robroosappImage = appImage.tag(1robroos/handsonjenkins:${BUILD_NUMBER})
+		def robroosappImage = appImage.tag(1robroos/handsonjenkins:${BUILD_NUMBER})
 		withDockerRegistry(credentialsId: '1robroosdockerhub') {
     		// Push to dockerhub:
     	    //sh 'docker push 1robroos/jenkinshandson:latest'  // Image does not exist locally with the tag: 1robroos/jenkinshandson
 			sh "printenv"
-			1robroosappImage.push()
+			robroosappImage.push()
 	    }
 	}
 }
