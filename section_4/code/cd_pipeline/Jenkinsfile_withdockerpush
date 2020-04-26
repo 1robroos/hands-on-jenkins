@@ -83,7 +83,9 @@ def buildApp() {
 }
 
 def dockerEcho() {
-	sh "echo \"Running ${env.BUILD_ID} on ${env.JENKINS_URL}\""
+	sh "echo \"docker push ${robroosimageName}\""
+    sh "echo \"Running ${env.BUILD_ID} on ${env.JENKINS_URL}\""
+
     sh "docker ps "
 }
 
