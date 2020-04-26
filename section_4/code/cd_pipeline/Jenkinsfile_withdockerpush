@@ -68,8 +68,6 @@ def dockerPush() {
 	withDockerRegistry(credentialsId: '1robroosdockerhub') {
     // Push to dockerhub:
         dockerImage.push()
-
-}
 	}
 }
 
