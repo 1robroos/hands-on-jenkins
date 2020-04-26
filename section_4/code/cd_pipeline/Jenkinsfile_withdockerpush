@@ -60,11 +60,15 @@ pipeline {
 // steps
 def buildApp() {
 	dir ('section_4/code/cd_pipeline' ) {
-		def appImage = docker.build("hands-on-jenkins/myapp:${BUILD_NUMBER}")
+		def imageName ="hands-on-jenkins/myapp:${BUILD_NUMBER}"
+		def appImage = docker.build("${imageName}")
+		sh "docker tag  "${imageName}" 1robroos/handsonjenkins:${BUILD_NUMBER}"
+
+		//def appImage = docker.build("hands-on-jenkins/myapp:${BUILD_NUMBER}")
 		//def robroosappImage = docker.Image.tag("1robroos/handsonjenkins:${BUILD_NUMBER}")
-		//sh "docker tag  hands-on-jenkins/myapp:${BUILD_NUMBER} 1robroos/handsonjenkins:${BUILD_NUMBER}"
+		//sh "docker tag  hands-on-jenkins/myapp:${BUILD_NUMBER} 1robroos/handsonjenkins:${BUILD_NUMBER}"  DIT WERKT
 		//sh "docker tag  ${appImage} 1robroos/handsonjenkins:${BUILD_NUMBER}"
-		appImage.tag("1robroos/handsonjenkins:${BUILD_NUMBER}")
+		//appImage.tag("1robroos/handsonjenkins:${BUILD_NUMBER}")
 
 		//withDockerRegistry(credentialsId: '1robroosdockerhub') {
     		// Push to dockerhub:
