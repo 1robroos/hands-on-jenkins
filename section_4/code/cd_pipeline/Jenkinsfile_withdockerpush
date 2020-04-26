@@ -100,7 +100,7 @@ def dockerPush() {
 //		sh " "
 	//	sh "printenv"
 	//	appImage.push()
-	//}
+	}
 }
 
 def deploy(environment) {
