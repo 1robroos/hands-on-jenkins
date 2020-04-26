@@ -67,7 +67,8 @@ def buildApp() {
 def dockerPush() {
 	withDockerRegistry(credentialsId: '1robroosdockerhub') {
     // Push to dockerhub:
-          sh 'docker push 1robroos/jenkinshandson:latest'
+    //      sh 'docker push 1robroos/jenkinshandson:latest'
+		appImage.push()
 	}
 }
 
