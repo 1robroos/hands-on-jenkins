@@ -21,9 +21,10 @@ pipeline {
         stage("Build") {
             steps { buildApp() }
 		}
-//		stage("DockerPush") {
-//          steps { dockerPush() }
-//		}
+		stage("DockerPush") {
+          steps { dockerPush() }
+		}
+
 		stage("DockerEcho") {
             steps { dockerEcho() }
 		}
