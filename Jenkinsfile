@@ -23,7 +23,7 @@ pipeline {
 
         stage('Test edge') {
           steps {
-            sh 'echo \'Want to test edge\''
+            sh 'echo \'test edge in this branch\''
           }
         }
 
